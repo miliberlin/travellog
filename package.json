@@ -16,6 +16,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.28.0",
+    "eslint-plugin-vue": "^9.7.0",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4",
     "vite": "^3.2.4"
