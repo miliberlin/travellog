@@ -21,9 +21,10 @@ onMounted (() => {
 		zoom: 3
 	})
 
-	const marker = props.points.forEach(point => new mapboxgl.Marker({
-		color: "#488286",
-	}).setLngLat(point.coordinates)
-		.addTo(map))
+	const marker = props.points.forEach(country => 
+		country.visitedPlaces.forEach(place => new mapboxgl.Marker({
+			color: "#488286",
+		}).setLngLat(place.coordinates)
+			.addTo(map)))
 })
 </script>
