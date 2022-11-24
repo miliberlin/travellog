@@ -10,3 +10,8 @@ body {
 .underlined {
   border-bottom: 2px solid #488286;
 }
+
+.mapboxgl-popup {
+	max-width: 400px;
+	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
