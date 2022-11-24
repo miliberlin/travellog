@@ -52,6 +52,16 @@ export const log = [
 				coordinates: [10.990469427367234, 45.43827532130358]
 			},
 			{
+				city: "Milan",
+				dates: "9/2021",
+				coordinates: [9.182588777037639, 45.4679733139139]
+			},
+			{
+				city: "Treviso",
+				dates: "9/2021",
+				coordinates: [12.244039696492443, 45.66439328785206]
+			},
+			{
 				city: "Rome",
 				dates: ["9/2021", "6/2022"],
 				coordinates: [12.497538349164065, 41.88762985541123]
@@ -118,6 +128,11 @@ export const log = [
 				city: "Amsterdam",
 				dates: "9/2022",
 				coordinates: [4.892982161810678, 52.37054603244265]
+			},
+			{
+				city: "Texel",
+				dates: "11/2022",
+				coordinates: [4.757705957303219, 53.07555431222893]
 			},
 		]
 	},
