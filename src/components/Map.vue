@@ -20,7 +20,9 @@ const formattedPlaces = computed (() => {
 				{
 					"type": "Feature",
 					"properties": {
-						"description": `<strong>${country.flag} ${place.name}, ${country.country}</strong><p>${getDates(place.dates)}</p>`
+						"description": `<h3><strong>${country.flag} ${place.name}, ${country.country}</strong></h3><p>${getDates(place.dates)}</p>${place.haveLivedHere ? "<p>We have lived here.</p>" : ""}`,
+						"size": place.dates.length > 1 ? 6 + (place.dates.length * 2) : 6,
+						"colour": place.haveLivedHere ? "#cd5334" : "#488286"
 					},
 					"geometry": {
 						"type": "Point",
@@ -57,8 +59,8 @@ onMounted (() => {
 			"type": "circle",
 			"source": "places",
 			"paint": {
-				"circle-color": "#488286",
-				"circle-radius": 6,
+				"circle-color": ["get", "colour"],
+				"circle-radius": ["get", "size"],
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff"
 			}

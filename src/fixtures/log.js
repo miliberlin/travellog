@@ -7,6 +7,7 @@ export const log = [
 			{
 				name: "Berlin",
 				dates: ["11/2020"],
+				haveLivedHere: true,
 				coordinates: [13.391989873255772, 52.51927457504955],
 			},
 			{
@@ -49,6 +50,7 @@ export const log = [
 			{
 				name: "Verona",
 				dates: ["9/2021"],
+				haveLivedHere: true,
 				coordinates: [10.990469427367234, 45.43827532130358]
 			},
 			{
@@ -117,6 +119,7 @@ export const log = [
 			{
 				name: "Nijmegen",
 				dates: ["9/2022"],
+				haveLivedHere: true,
 				coordinates: [5.859967101350033, 51.841785594284424]
 			},
 			{
