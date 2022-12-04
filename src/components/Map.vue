@@ -4,13 +4,15 @@
 
 <script setup>
 import mapboxgl from "mapbox-gl"
-import { onMounted, computed } from "vue"
+import { onMounted, computed, onBeforeUpdate} from "vue"
 import { getDates } from "../helpers"
 
 const props = defineProps({
 	points: Array
 })
 const mapKey = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN
+
+let map = null
 
 const formattedPlaces = computed (() => {
 	const formattedList = []
@@ -38,7 +40,7 @@ const formattedPlaces = computed (() => {
 onMounted (() => {
 	mapboxgl.accessToken = mapKey
 
-	const map = new mapboxgl.Map({
+	map = new mapboxgl.Map({
 		container: "map",
 		style: "mapbox://styles/mapbox/light-v11",
 		center: [7.734268335243472, 48.57632247789885],
@@ -97,6 +99,31 @@ onMounted (() => {
 			popup.remove()
 		})
 	})
+})
 
+onBeforeUpdate (() => {
+	// remove existing data
+	map.removeLayer("places")
+	map.removeSource("places")
+
+	// load new data
+	map.addSource("places", {
+		"type": "geojson",
+		"data": {
+			"type": "FeatureCollection",
+			"features": formattedPlaces.value,
+		}
+	})
+	map.addLayer({
+		"id": "places",
+		"type": "circle",
+		"source": "places",
+		"paint": {
+			"circle-color": ["get", "colour"],
+			"circle-radius": ["get", "size"],
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff"
+		}
+	})
 })
 </script>
