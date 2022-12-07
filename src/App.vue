@@ -24,14 +24,14 @@ import CountrySelect from "./components/CountrySelect.vue"
 import { log } from "./fixtures/log"
 import { computed, ref } from "vue"
 
-const selectedCountry = ref(null)
+const selectedCountry = ref("Show all")
 
 const filterByCountry = computed(() => {
-	if (selectedCountry.value) {
-		const country = log.find(item => item.country === selectedCountry.value)
-		return [country]
+	if (selectedCountry.value === "Show all") {
+		return log
 	}
-	return false
+	const country = log.find(item => item.country === selectedCountry.value)
+	return [country]
 })
 
 const stats = computed(() => {

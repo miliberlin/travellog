@@ -4,13 +4,6 @@
     @change="$emit('select:country', $event.target.value)"
   >
     <option
-      value="none"
-      disabled
-      :selected="!selectedCountry"
-    >
-      Select a country
-    </option>
-    <option
       v-for="option of options"
       :key="option"
       :value="option"
@@ -30,5 +23,9 @@ const props = defineProps({
 })
 defineEmits(["select:country"])
 
-const options = computed(() => props.log.map(item => item.country))
+const options = computed(() => {
+	let countries = props.log.map(item => item.country)
+	countries.unshift("Show all")
+	return countries
+})
 </script>
