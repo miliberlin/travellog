@@ -4,8 +4,8 @@
     <p>We have visited <span class="font-bold">{{ stats.places }} places</span> in <span class="font-bold">{{ stats.countries }} countries</span> together.</p>
   </div>
 	<div class="flex-wrap lg:flex-nowrap flex">
-		<Map class="w-full lg:w-4/5" :points="filterByCountry ? filterByCountry : log" />
-		<div class="w-full lg:w-1/5 flex flex-col lg:max-h-[85vh] mx-2">
+		<Map class="w-full lg:w-9/12" :points="filterByCountry ? filterByCountry : log" />
+		<div class="w-full lg:w-1/3 flex flex-col lg:max-h-[85vh] mx-2">
 			<CountrySelect
 				@select:country="selectedCountry = $event"
 				:selected-country="selectedCountry"

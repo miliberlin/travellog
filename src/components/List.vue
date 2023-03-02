@@ -1,5 +1,5 @@
 <template>
-  <table class="table-auto w-full">
+  <table class="text-sm table-auto w-full">
     <thead>
       <tr class="text-left">
         <th class="py-2 px-3">Place</th>
