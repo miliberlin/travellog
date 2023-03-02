@@ -1,5 +1,5 @@
 <template>
-  <div class="h-[75vh] w-screen" id="map"></div>
+  <div class="h-[60vh] lg:h-[85vh] w-full" id="map"></div>
 </template>
 
 <script setup>
@@ -22,7 +22,7 @@ const formattedPlaces = computed (() => {
 				{
 					"type": "Feature",
 					"properties": {
-						"description": `<h3><strong>${country.flag} ${place.name}, ${country.country}</strong></h3><p>${getDates(place.dates)}</p>${place.haveLivedHere ? "<p>We have lived here.</p>" : ""}`,
+						"description": `<h3><strong>${country.flag} ${place.name}, ${country.country}</strong></h3><p>${getDates(place.dates)}</p>${place.haveLivedHere ? "<p>🏡 We lived here</p>" : ""}`,
 						"size": place.dates.length > 1 ? 6 + (place.dates.length * 2) : 6,
 						"colour": place.haveLivedHere ? "#cd5334" : "#488286"
 					},
@@ -43,8 +43,8 @@ onMounted (() => {
 	map = new mapboxgl.Map({
 		container: "map",
 		style: "mapbox://styles/mapbox/light-v11",
-		center: [7.734268335243472, 48.57632247789885],
-		zoom: 3
+		center: [66.70945817090065, 47.67731622731609],
+		zoom: 2
 	})
 
 	map.on("load", () => {

@@ -41,6 +41,11 @@ export const log = [
 				dates: ["3/2022"],
 				coordinates: [-16.624322685979102, 28.316081653740135]
 			},
+			{
+				name: "Lanzarote",
+				dates: ["2/2023"],
+				coordinates: [-13.541831166, 28.955662844]
+			},
 		]
 	},
 	{
@@ -161,4 +166,26 @@ export const log = [
 			},
 		]
 	},
+	{
+		country: "Japan",
+		flag: "🇯🇵",
+		visitedPlaces: [
+			{
+				name: "Tokyo",
+				dates: ["5/2023"],
+				coordinates: [139.762472, 35.679922]
+			},
+			{
+				name: "Osaka",
+				dates: ["5/2023"],
+				coordinates: [135.5244872371889, 34.68774158601904]
+			},
+			{
+				name: "Kyoto",
+				dates: ["5/2023"],
+				coordinates: [135.75752239044297, 34.986618027449204]
+			},
+		]
+	},
+
 ]

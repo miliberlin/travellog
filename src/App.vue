@@ -3,16 +3,18 @@
     <h1 class="inline-block text-xl font-semibold mb-2 underlined">Giovanni & Michelle's TravelLog</h1>
     <p>We have visited <span class="font-bold">{{ stats.places }} places</span> in <span class="font-bold">{{ stats.countries }} countries</span> together.</p>
   </div>
-	<Map :points="filterByCountry ? filterByCountry : log" />
-	<div class="flex justify-end">
-		<CountrySelect
-			@select:country="selectedCountry = $event"
-			:selected-country="selectedCountry"
-			:log="log"
-		/>
-	</div>
-	<div class="flex justify-center">
-		<List :points="filterByCountry ? filterByCountry : log" />
+	<div class="flex-wrap lg:flex-nowrap flex">
+		<Map class="w-full lg:w-4/5" :points="filterByCountry ? filterByCountry : log" />
+		<div class="w-full lg:w-1/5 flex flex-col lg:max-h-[85vh] mx-2">
+			<CountrySelect
+				@select:country="selectedCountry = $event"
+				:selected-country="selectedCountry"
+				:log="log"
+			/>
+			<div class="lg:overflow-scroll">
+				<List :points="filterByCountry ? filterByCountry : log" />
+			</div>
+		</div>
 	</div>
 </template>
 

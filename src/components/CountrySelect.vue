@@ -1,6 +1,6 @@
 <template>
   <select
-    class="mt-2 mr-2 py-1 px-3 border rounded border-[#488286]"
+    class="mt-3 lg:mt-0 lg:w-full px-3 border rounded border-[#488286]"
     @change="$emit('select:country', $event.target.value)"
   >
     <option
@@ -24,7 +24,7 @@ const props = defineProps({
 defineEmits(["select:country"])
 
 const options = computed(() => {
-	let countries = props.log.map(item => item.country)
+	let countries = props.log.map(item => item.country).sort()
 	countries.unshift("Show all")
 	return countries
 })
