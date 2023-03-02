@@ -1,5 +1,6 @@
 <template>
   <select
+    data-testid="country-selector"
     class="mt-3 mb-2 lg:mt-0 lg:w-full px-3 border rounded border-[#488286]"
     @change="$emit('select:country', $event.target.value)"
   >
