@@ -25,7 +25,7 @@
         ]"
         @click="handleRowClick(row)"
       >
-        <td class="py-2 px-3">{{ row.flag }} {{ row.country }}</td>
+        <td class="py-2 px-3"><span @mouseenter="row.flag === '🇮🇹' && startPizzaRain()" @mouseleave="row.flag === '🇮🇹' && stopPizzaRain()">{{ row.flag }}</span> {{ row.country }}</td>
         <td class="py-2 px-3">{{ row.name }}<span v-if="row.haveLivedHere" title="We lived here!"> 🏡</span></td>
         <td class="py-2 px-3">{{ getDates(row.dates) }}</td>
       </tr>
@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { ref, computed, inject } from "vue"
+import { ref, computed, inject, onUnmounted } from "vue"
 import { getDates } from "../helpers"
 
 const props = defineProps({
@@ -62,6 +62,48 @@ function getLatestYear(dates) {
 		return year > latest ? year : latest
 	}, 0)
 }
+
+let pizzaContainer = null
+let pizzaInterval = null
+
+function startPizzaRain() {
+	if (pizzaContainer) return
+	pizzaContainer = document.createElement("div")
+	Object.assign(pizzaContainer.style, {
+		position: "fixed", inset: "0", pointerEvents: "none", zIndex: "9999", overflow: "hidden"
+	})
+	document.body.appendChild(pizzaContainer)
+	pizzaInterval = setInterval(() => {
+		const pizza = document.createElement("div")
+		pizza.textContent = "🍕"
+		const left = Math.random() * 100
+		const size = 20 + Math.random() * 30
+		const duration = 1 + Math.random() * 2
+		Object.assign(pizza.style, {
+			position: "absolute",
+			left: `${left}%`,
+			top: "-40px",
+			fontSize: `${size}px`,
+			animation: `pizza-fall ${duration}s linear forwards`,
+		})
+		pizzaContainer.appendChild(pizza)
+		setTimeout(() => pizza.remove(), duration * 1000)
+	}, 50)
+
+	if (!document.getElementById("pizza-style")) {
+		const style = document.createElement("style")
+		style.id = "pizza-style"
+		style.textContent = `@keyframes pizza-fall { from { transform: translateY(0) rotate(0deg); } to { transform: translateY(100vh) rotate(360deg); } }`
+		document.head.appendChild(style)
+	}
+}
+
+function stopPizzaRain() {
+	if (pizzaInterval) { clearInterval(pizzaInterval); pizzaInterval = null }
+	if (pizzaContainer) { pizzaContainer.remove(); pizzaContainer = null }
+}
+
+onUnmounted(stopPizzaRain)
 
 function handleRowClick(row) {
 	if (flyTo && row.coordinates) {
