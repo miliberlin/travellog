@@ -1,5 +1,18 @@
 <template>
-  <div class="h-[60vh] lg:h-[85vh] w-full" id="map"></div>
+  <div class="relative">
+    <div class="h-[60vh] lg:h-[80vh] w-full" id="map"></div>
+    <div class="absolute bottom-6 left-3 bg-white/90 backdrop-blur-sm rounded-lg shadow-md px-3 py-2 text-xs z-[1000] space-y-1">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-3 h-3 rounded-full bg-steel-teal border-2 border-white shadow-sm"></span>
+        <span>Visited</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-3 h-3 rounded-full bg-burnt-sienna border-2 border-white shadow-sm"></span>
+        <span>Lived here</span>
+      </div>
+      <div class="text-slate-gray mt-1 text-[10px]">Circle size = number of visits</div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -116,6 +129,14 @@ onMounted(() => {
 onUnmounted(() => {
 	if (resizeObserver) resizeObserver.disconnect()
 })
+
+function flyTo(coords) {
+	if (map) {
+		map.flyTo({ center: coords, zoom: 8, duration: 1500 })
+	}
+}
+
+defineExpose({ flyTo })
 
 watch(() => props.points, () => {
 	if (!map) return

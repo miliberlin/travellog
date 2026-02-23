@@ -6,7 +6,7 @@ export const log = [
 		visitedPlaces: [
 			{
 				name: "Berlin",
-				dates: ["2020", "2022"],
+				dates: ["2020", "2025"],
 				haveLivedHere: true,
 				coordinates: [13.391989873255772, 52.51927457504955],
 			},
