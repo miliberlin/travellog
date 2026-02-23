@@ -3,6 +3,12 @@ module.exports = {
 		"browser": true,
 		"es2021": true
 	},
+	"globals": {
+		"defineModel": "readonly",
+		"defineProps": "readonly",
+		"defineEmits": "readonly",
+		"defineExpose": "readonly"
+	},
 	"extends": [
 		"eslint:recommended",
 		"plugin:vue/vue3-essential"

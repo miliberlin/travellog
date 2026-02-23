@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-  color: #373e40;
+  @apply text-onyx;
   background-color: #f8f8ff;
 }
 
 .underlined {
-  border-bottom: 2px solid #488286;
+  @apply border-b-2 border-steel-teal;
 }
 
 .mapboxgl-popup {

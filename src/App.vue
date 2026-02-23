@@ -19,8 +19,7 @@
 			:class="panelOpen ? 'lg:w-1/3' : 'lg:w-0 lg:opacity-0'"
 		>
 			<CountrySelect
-				@select:country="selectedCountry = $event"
-				:selected-country="selectedCountry"
+				v-model:selected-country="selectedCountry"
 				:log="log"
 			/>
 			<div class="lg:overflow-scroll">
