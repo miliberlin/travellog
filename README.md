@@ -1,7 +1,55 @@
-# Vue 3 + Vite
+# TravelLog
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A personal travel journal app that tracks visited countries and places with an interactive map. Built with Vue 3, Mapbox GL, and Tailwind CSS.
 
-## Recommended IDE Setup
+## Features
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- **Interactive Map** — Mapbox GL map with color-coded markers (teal for visited, burnt sienna for lived-in). Circle size reflects number of visits. Click to fly to locations.
+- **Sortable Table** — Browse all places sorted by country, place, or date.
+- **Search** — Filter places by country or place name.
+- **Statistics** — See total countries, places, and year range at a glance.
+- **Collapsible Sidebar** — Toggle the sidebar on desktop for a full-screen map view.
+
+## Tech Stack
+
+- [Vue 3](https://vuejs.org/) with `<script setup>` SFCs
+- [Vite](https://vitejs.dev/) for build tooling
+- [Mapbox GL](https://docs.mapbox.com/mapbox-gl-js/) for map rendering
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Create a `.env` file with your Mapbox token:
+
+```
+VITE_MAPBOX_ACCESS_TOKEN=your_token_here
+```
+
+## Scripts
+
+| Command             | Description              |
+| ------------------- | ------------------------ |
+| `npm run dev`       | Start dev server         |
+| `npm run build`     | Build for production     |
+| `npm run preview`   | Preview production build |
+
+## Project Structure
+
+```
+src/
+├── App.vue              # Root layout and stats calculation
+├── components/
+│   ├── Header.vue       # Title and statistics
+│   ├── Map.vue          # Mapbox map with markers
+│   ├── Sidebar.vue      # Collapsible sidebar with search
+│   ├── List.vue         # Sortable, searchable table
+│   └── Footer.vue       # Credit footer
+├── fixtures/
+│   └── log.js           # Travel data
+└── helpers.js           # Utility functions
+```
