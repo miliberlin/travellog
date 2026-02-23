@@ -4,7 +4,7 @@
 
 <script setup>
 import mapboxgl from "mapbox-gl"
-import { onMounted, computed, onBeforeUpdate} from "vue"
+import { onMounted, computed, watch } from "vue"
 import { getDates } from "../helpers"
 
 const props = defineProps({
@@ -101,29 +101,14 @@ onMounted (() => {
 	})
 })
 
-onBeforeUpdate (() => {
-	// remove existing data
-	map.removeLayer("places")
-	map.removeSource("places")
-
-	// load new data
-	map.addSource("places", {
-		"type": "geojson",
-		"data": {
+watch(() => props.points, () => {
+	if (!map) return
+	const source = map.getSource("places")
+	if (source) {
+		source.setData({
 			"type": "FeatureCollection",
 			"features": formattedPlaces.value,
-		}
-	})
-	map.addLayer({
-		"id": "places",
-		"type": "circle",
-		"source": "places",
-		"paint": {
-			"circle-color": ["get", "colour"],
-			"circle-radius": ["get", "size"],
-			"circle-stroke-width": 2,
-			"circle-stroke-color": "#ffffff"
-		}
-	})
+		})
+	}
 })
 </script>

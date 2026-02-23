@@ -33,21 +33,12 @@ const filterByCountry = computed(() => {
 		return log
 	}
 	const country = log.find(item => item.country === selectedCountry.value)
-	return [country]
+	return country ? [country] : []
 })
 
-const stats = computed(() => {
-	const numbers = {
-		countries: 0,
-		places: 0
-	}
-
-	log.forEach(country => {
-		numbers.countries++
-		numbers.places += country.visitedPlaces.length
-	})
-
-	return numbers
-})
+const stats = computed(() => ({
+	countries: log.length,
+	places: log.reduce((sum, country) => sum + country.visitedPlaces.length, 0)
+}))
 
 </script>
