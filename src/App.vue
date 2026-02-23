@@ -3,9 +3,19 @@
     <h1 class="inline-block text-xl font-semibold mb-2 underlined">Giovanni & Michelle's TravelLog</h1>
     <p>We have visited <span class="font-bold">{{ stats.places }} places</span> in <span class="font-bold">{{ stats.countries }} countries</span> together.</p>
   </div>
-	<div class="flex-wrap lg:flex-nowrap flex">
-		<Map class="w-full lg:w-9/12" :points="filterByCountry ? filterByCountry : log" />
-		<div class="w-full lg:w-1/3 flex flex-col lg:max-h-[85vh] mx-2">
+	<div class="flex-wrap lg:flex-nowrap flex relative gap-6 mx-6">
+		<Map class="w-full lg:flex-1 lg:min-w-0" :points="filterByCountry ? filterByCountry : log" />
+		<button
+			@click="panelOpen = !panelOpen"
+			class="hidden lg:flex absolute top-2 items-center justify-center w-7 h-7 bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 z-[1000] transition-all duration-300"
+			:class="panelOpen ? 'right-[calc(33.333%+4px)]' : 'right-2'"
+		>
+			{{ panelOpen ? '\u00AB' : '\u00BB' }}
+		</button>
+		<div
+			class="w-full flex flex-col lg:max-h-[85vh] transition-all duration-300 overflow-hidden"
+			:class="panelOpen ? 'lg:w-1/3' : 'lg:w-0 lg:opacity-0'"
+		>
 			<CountrySelect
 				@select:country="selectedCountry = $event"
 				:selected-country="selectedCountry"
@@ -27,6 +37,7 @@ import { log } from "./fixtures/log"
 import { computed, ref } from "vue"
 
 const selectedCountry = ref("Show all")
+const panelOpen = ref(true)
 
 const filterByCountry = computed(() => {
 	if (selectedCountry.value === "Show all") {

@@ -43,16 +43,11 @@ function toggleSort(key) {
 	}
 }
 
-function parseDate(dateStr) {
-	const [month, year] = dateStr.split("/")
-	return new Date(parseInt(year), parseInt(month) - 1)
-}
-
-function getLatestDate(dates) {
+function getLatestYear(dates) {
 	return dates.reduce((latest, d) => {
-		const parsed = parseDate(d)
-		return parsed > latest ? parsed : latest
-	}, new Date(0))
+		const year = parseInt(d)
+		return year > latest ? year : latest
+	}, 0)
 }
 
 const flatRows = computed(() => {
@@ -82,7 +77,7 @@ const sortedRows = computed(() => {
 			return dir * a.country.localeCompare(b.country)
 		}
 		// date
-		return dir * (getLatestDate(a.dates) - getLatestDate(b.dates))
+		return dir * (getLatestYear(a.dates) - getLatestYear(b.dates))
 	})
 
 	return rows

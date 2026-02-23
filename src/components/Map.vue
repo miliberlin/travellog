@@ -4,7 +4,7 @@
 
 <script setup>
 import mapboxgl from "mapbox-gl"
-import { onMounted, computed, watch } from "vue"
+import { onMounted, onUnmounted, computed, watch } from "vue"
 import { getDates } from "../helpers"
 
 const props = defineProps({
@@ -99,6 +99,22 @@ onMounted (() => {
 			popup.remove()
 		})
 	})
+})
+
+let resizeObserver = null
+
+onMounted(() => {
+	const container = document.getElementById("map")
+	if (container) {
+		resizeObserver = new ResizeObserver(() => {
+			if (map) map.resize()
+		})
+		resizeObserver.observe(container)
+	}
+})
+
+onUnmounted(() => {
+	if (resizeObserver) resizeObserver.disconnect()
 })
 
 watch(() => props.points, () => {
