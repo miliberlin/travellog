@@ -7,10 +7,12 @@
 		<Map class="w-full lg:flex-1 lg:min-w-0" :points="filterByCountry ? filterByCountry : log" />
 		<button
 			@click="panelOpen = !panelOpen"
-			class="hidden lg:flex absolute top-2 items-center justify-center w-7 h-7 bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 z-[1000] transition-all duration-300"
+			class="hidden lg:flex absolute top-1/2 -translate-y-1/2 items-center justify-center w-7 h-7 bg-white border border-gray-300 rounded-full shadow-md hover:bg-gray-100 z-[1000] transition-all duration-300"
 			:class="panelOpen ? 'right-[calc(33.333%+4px)]' : 'right-2'"
 		>
-			{{ panelOpen ? '\u00AB' : '\u00BB' }}
+			<span class="relative bottom-[1px]">
+				{{ panelOpen ? '\u00AB' : '\u00BB' }}
+			</span>
 		</button>
 		<div
 			class="w-full flex flex-col lg:max-h-[85vh] transition-all duration-300 overflow-hidden"
