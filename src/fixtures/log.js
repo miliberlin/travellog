@@ -6,7 +6,7 @@ export const log = [
 		visitedPlaces: [
 			{
 				name: "Berlin",
-				dates: ["11/2020"],
+				dates: ["11/2020", "12/2022"],
 				haveLivedHere: true,
 				coordinates: [13.391989873255772, 52.51927457504955],
 			},
@@ -27,8 +27,18 @@ export const log = [
 			},
 			{
 				name: "Rügen",
-				dates: ["6/2021"],
+				dates: ["6/2021", "8/2025"],
 				coordinates: [13.348580156911458, 54.39322874534515]
+			},
+			{
+				name: "Sächsische Schweiz",
+				dates: ["6/2025"],
+				coordinates: [14.080000, 50.912500]
+			},
+			{
+				name: "Düsseldorf",
+				dates: ["12/2023"],
+				coordinates: [6.773500, 51.227700]
 			},
 		]
 	},
@@ -98,7 +108,11 @@ export const log = [
 				dates: ["12/2021"],
 				coordinates: [10.750412883507826, 46.11658059332657]
 			},
-
+			{
+				name: "Cinque Terre",
+				dates: ["10/2023"],
+				coordinates: [9.710000, 44.146100]
+			},
 		]
 	},
 	{
@@ -134,13 +148,18 @@ export const log = [
 			},
 			{
 				name: "Amsterdam",
-				dates: ["9/2022"],
+				dates: ["9/2022", "11/2023"],
 				coordinates: [4.892982161810678, 52.37054603244265]
 			},
 			{
 				name: "Texel",
 				dates: ["11/2022"],
 				coordinates: [4.757705957303219, 53.07555431222893]
+			},
+			{
+				name: "Rotterdam",
+				dates: ["4/2023"],
+				coordinates: [4.477700, 51.924400]
 			},
 		]
 	},
@@ -153,6 +172,11 @@ export const log = [
 				dates: ["10/2022"],
 				coordinates: [4.353691369606668, 50.8468181311717]
 			},
+			{
+				name: "Antwerp",
+				dates: ["3/2025"],
+				coordinates: [4.402500, 51.219400]
+			},
 		]
 	},
 	{
@@ -161,7 +185,7 @@ export const log = [
 		visitedPlaces: [
 			{
 				name: "London",
-				dates: ["4/2022"],
+				dates: ["4/2022", "8/2025"],
 				coordinates: [-0.10783254269382275, 51.51560537323357]
 			},
 		]
@@ -172,20 +196,57 @@ export const log = [
 		visitedPlaces: [
 			{
 				name: "Tokyo",
-				dates: ["5/2023"],
+				dates: ["5/2023", "11/2024"],
 				coordinates: [139.762472, 35.679922]
 			},
 			{
 				name: "Osaka",
-				dates: ["5/2023"],
+				dates: ["5/2023", "11/2024"],
 				coordinates: [135.5244872371889, 34.68774158601904]
 			},
 			{
 				name: "Kyoto",
-				dates: ["5/2023"],
+				dates: ["5/2023", "11/2024"],
 				coordinates: [135.75752239044297, 34.986618027449204]
 			},
 		]
 	},
-
+	{
+		country: "Denmark",
+		flag: "🇩🇰",
+		visitedPlaces: [
+			{
+				name: "Copenhagen",
+				dates: ["12/2025"],
+				coordinates: [12.568300, 55.676100]
+			},
+		]
+	},
+	{
+		country: "Greece",
+		flag: "🇬🇷",
+		visitedPlaces: [
+			{
+				name: "Athens",
+				dates: ["10/2024"],
+				coordinates: [23.727500, 37.983800]
+			},
+		]
+	},
+	{
+		country: "Portugal",
+		flag: "🇵🇹",
+		visitedPlaces: [
+			{
+				name: "Lisbon",
+				dates: ["3/2024"],
+				coordinates: [-9.139300, 38.722300]
+			},
+			{
+				name: "Madeira",
+				dates: ["3/2024"],
+				coordinates: [-16.959500, 32.666900]
+			},
+		]
+	},
 ]
